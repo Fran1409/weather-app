@@ -32,7 +32,8 @@
                 .then(data => {
                     console.log(data);
                     getWeatherNow(data); 
-                    getWeatherNextDays(data);           
+                    getWeatherNextDays(data); 
+                    document.getElementById("location").innerHTML = data.city.name;          
             }); 
         };      
     };
@@ -64,6 +65,32 @@
         document.getElementById("date3").innerHTML = d.list[i+16].dt_txt.slice(0,10);
         document.getElementById("date4").innerHTML = d.list[i+24].dt_txt.slice(0,10);
         document.getElementById("date5").innerHTML = d.list[i+32].dt_txt.slice(0,10);
+
+        document.getElementById("location1").innerHTML = d.city.name;
+        document.getElementById("location2").innerHTML = d.city.name;
+        document.getElementById("location3").innerHTML = d.city.name;
+        document.getElementById("location4").innerHTML = d.city.name;
+        document.getElementById("location5").innerHTML = d.city.name;
+
+        document.getElementById("description1").innerHTML = d.list[i].weather[0].description;
+        document.getElementById("description2").innerHTML = d.list[i+8].weather[0].description;
+        document.getElementById("description3").innerHTML = d.list[i+16].weather[0].description;
+        document.getElementById("description4").innerHTML = d.list[i+24].weather[0].description;
+        document.getElementById("description5").innerHTML = d.list[i+32].weather[0].description;
+
+        celcius1 = Math.round(parseFloat(d.list[i].main.temp)-273.15);
+        celcius2 = Math.round(parseFloat(d.list[i+8].main.temp)-273.15);
+        celcius3 = Math.round(parseFloat(d.list[i+16].main.temp)-273.15);
+        celcius4 = Math.round(parseFloat(d.list[i+24].main.temp)-273.15);
+        celcius5 = Math.round(parseFloat(d.list[i+32].main.temp)-273.15);
+
+        document.getElementById("temp1").innerHTML = celcius1 +"&#8451;";
+        document.getElementById("temp2").innerHTML = celcius2 +"&#8451;";
+        document.getElementById("temp3").innerHTML = celcius3 +"&#8451;";
+        document.getElementById("temp4").innerHTML = celcius4 +"&#8451;";
+        document.getElementById("temp5").innerHTML = celcius5 +"&#8451;";
+
+
         
     };
 
