@@ -27,11 +27,9 @@
                 .then(response => response.json())
                 .then(data => {
                     console.log(data);
-                    /* getCoordCity(data); */
-                    getWeather(data);            
+                    getWeatherNow(data); 
+                    getWeatherNextDays(data);           
             }); 
-/* 
-            getForecastWeek();   */
         };      
     };
 
@@ -40,7 +38,7 @@
         console.log(city)
     };
 
-    function getWeather(d) {
+    function getWeatherNow(d) {
         celcius = Math.round(parseFloat(d.list[0].main.temp)-273.15);
 
         document.getElementById("title").innerHTML = "At this moment"
@@ -49,6 +47,18 @@
         document.getElementById("location").innerHTML = d.city.name;
         document.getElementById("weatherimage").src = "images/"+d.list[0].weather[0].icon+".png"
     };
+
+    function getWeatherNextDays(d) {
+        
+        document.getElementById("date").innerHTML = d.list[0].dt_txt;
+        
+    };
+
+
+
+
+
+
 
     /* function getCoordCity(d) {
         lon = parseFloat(d.coord.lon);
