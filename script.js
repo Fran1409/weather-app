@@ -20,15 +20,18 @@
 
         getCity();
 
-        fetch('https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid='+key)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                getCoordCity(data);
-                getForecastWeek();  
-                getWeather(data);            
-        });
-
+        if(city == ""){
+            alert("Enter a city to get the weather.")
+        } else {
+            fetch('https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid='+key)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    getCoordCity(data);
+                    getForecastWeek();  
+                    getWeather(data);            
+            }); 
+        };      
     };
 
     function getCity() {
