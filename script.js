@@ -90,7 +90,11 @@
         document.getElementById("temp4").innerHTML = celcius4 +"&#8451;";
         document.getElementById("temp5").innerHTML = celcius5 +"&#8451;";
 
-
+        document.getElementById("weatherimage1").src = "images/"+d.list[i].weather[0].icon+".png"
+        document.getElementById("weatherimage2").src = "images/"+d.list[i+8].weather[0].icon+".png"
+        document.getElementById("weatherimage3").src = "images/"+d.list[i+16].weather[0].icon+".png"
+        document.getElementById("weatherimage4").src = "images/"+d.list[i+24].weather[0].icon+".png"
+        document.getElementById("weatherimage5").src = "images/"+d.list[i+32].weather[0].icon+".png"
         
     };
 

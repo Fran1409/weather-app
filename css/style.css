@@ -31,8 +31,12 @@ input[type=submit]:hover {
 
 /* TODO: if there is no city input yet, the cards can't be showed */
 .card {
-    margin: 20px auto;
+    margin: 20px  auto;
     background-color: #d0e8f2;
+}
+
+.card-group .card {
+    margin-left: 20px;
 }
 
 img {
@@ -41,4 +45,13 @@ img {
     display: block;
     margin: 10px auto;
 }
+
+.card-img-top {
+    max-width: 80%;
+    max-height: 80%;
+    display: block;
+    margin: 10px auto;
+}
+
+
 
