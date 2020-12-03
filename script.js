@@ -7,7 +7,7 @@
 
 (() => {
 
-    // 1
+    const key = "a3b4024741635c916c33de8b5cd6faf3";
     let city = "";
     let celcius;
 
@@ -19,7 +19,7 @@
         city = document.getElementById("city").value;
         console.log(city)
 
-        fetch('https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid=a3b4024741635c916c33de8b5cd6faf3')
+        fetch('https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid='+key)
             .then(response => response.json())
             .then(data => {
                 console.log(data);
