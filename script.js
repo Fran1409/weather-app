@@ -10,8 +10,12 @@
     const key = "a3b4024741635c916c33de8b5cd6faf3";
     let city = "";
     let celcius;
-    let lon;
-    let lat;
+    let date = new Date();
+    date.setDate(date.getDate() + 1);
+    let day = date.toISOString();
+    let tomorrow = day.slice(0,10);
+    let i = 0;
+    
 
     document.getElementById("submit").addEventListener("click", getForecast);
 
@@ -50,7 +54,16 @@
 
     function getWeatherNextDays(d) {
         
-        document.getElementById("date").innerHTML = d.list[0].dt_txt;
+        while (tomorrow+" 12:00:00" != d.list[i].dt_txt) {
+            i++;
+            console.log(i);  
+        }
+
+        document.getElementById("date1").innerHTML = d.list[i].dt_txt.slice(0,10);
+        document.getElementById("date2").innerHTML = d.list[i+8].dt_txt.slice(0,10);
+        document.getElementById("date3").innerHTML = d.list[i+16].dt_txt.slice(0,10);
+        document.getElementById("date4").innerHTML = d.list[i+24].dt_txt.slice(0,10);
+        document.getElementById("date5").innerHTML = d.list[i+32].dt_txt.slice(0,10);
         
     };
 
