@@ -8,6 +8,25 @@ body {
 
 .form {
     margin: 20px auto;    
+    font-size: 25px;
+}
+
+/* TODO: if the city comes from the dropdown css needs to be the same*/
+input[type=text]:valid, [type=text]:focus {
+    background-color:  #79a3b1;
+    border: none;
+    border-bottom: 1px solid #456268;
+    width: 90px;
+}
+
+input[type=submit] {
+    background-color: #79a3b1;
+    border: none;
+
+}
+
+input[type=submit]:hover {
+    background-color: #81b2c28c; 
 }
 
 .card {
