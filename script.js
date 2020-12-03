@@ -27,10 +27,11 @@
                 .then(response => response.json())
                 .then(data => {
                     console.log(data);
-                    getCoordCity(data);
-                    getForecastWeek();  
+                    /* getCoordCity(data); */
                     getWeather(data);            
             }); 
+
+            getForecastWeek();  
         };      
     };
 
@@ -39,16 +40,18 @@
         console.log(city)
     };
 
-    function getCoordCity(d) {
+    /* function getCoordCity(d) {
         lon = parseFloat(d.coord.lon);
         lat = parseFloat(d.coord.lat);
 
         console.log(lon + " " +lat);
-    };
+    }; */
 
     function getForecastWeek() {
 
-        fetch('https://api.openweathermap.org/data/2.5/onecall?lat='+lat+'&lon='+lon+'&appid='+key)
+        getCity();
+
+        fetch('https://api.openweathermap.org/data/2.5/forecast?q='+city+'&appid='+key)
             .then(response => response.json())
             .then(data => {
                 console.log(data);               

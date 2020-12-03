@@ -29,6 +29,7 @@ input[type=submit]:hover {
     background-color: #81b2c28c; 
 }
 
+/* TODO: if there is no city input yet, the cards can't be showed */
 .card {
     margin: 20px auto;
     background-color: #d0e8f2;
