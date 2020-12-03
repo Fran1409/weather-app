@@ -13,9 +13,9 @@
     let lon;
     let lat;
 
-    document.getElementById("submit").addEventListener("click", getForecastToday);
+    document.getElementById("submit").addEventListener("click", getForecast);
 
-    function getForecastToday(event) {
+    function getForecast(event) {
         event.preventDefault();
 
         getCity();
@@ -23,15 +23,15 @@
         if(city == ""){
             alert("Enter a city to get the weather.")
         } else {
-            fetch('https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid='+key)
+            fetch('https://api.openweathermap.org/data/2.5/forecast?q='+city+'&appid='+key)
                 .then(response => response.json())
                 .then(data => {
                     console.log(data);
                     /* getCoordCity(data); */
                     getWeather(data);            
             }); 
-
-            getForecastWeek();  
+/* 
+            getForecastWeek();   */
         };      
     };
 
@@ -40,12 +40,22 @@
         console.log(city)
     };
 
+    function getWeather(d) {
+        celcius = Math.round(parseFloat(d.list[0].main.temp)-273.15);
+
+        document.getElementById("title").innerHTML = "At this moment"
+        document.getElementById("description").innerHTML = d.list[0].weather[0].description;
+        document.getElementById("temp").innerHTML = celcius +"&#8451;";
+        document.getElementById("location").innerHTML = d.city.name;
+        document.getElementById("weatherimage").src = "images/"+d.list[0].weather[0].icon+".png"
+    };
+
     /* function getCoordCity(d) {
         lon = parseFloat(d.coord.lon);
         lat = parseFloat(d.coord.lat);
 
         console.log(lon + " " +lat);
-    }; */
+    }; 
 
     function getForecastWeek() {
 
@@ -67,5 +77,5 @@
         document.getElementById("temp").innerHTML = celcius +"&#8451;";
         document.getElementById("location").innerHTML = d.name;
         document.getElementById("weatherimage").src = "images/"+d.weather[0].icon+".png"
-    };
+    };*/
 })();
