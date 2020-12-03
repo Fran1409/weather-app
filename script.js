@@ -10,10 +10,12 @@
     const key = "a3b4024741635c916c33de8b5cd6faf3";
     let city = "";
     let celcius;
+    let lon;
+    let lat;
 
-    document.getElementById("submit").addEventListener("click", getForecast);
+    document.getElementById("submit").addEventListener("click", getForecastToday);
 
-    function getForecast(event) {
+    function getForecastToday(event) {
         event.preventDefault();
 
         getCity();
@@ -22,7 +24,9 @@
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-                getWeather(data);
+                getCoordCity(data);
+                getForecastWeek();  
+                getWeather(data);            
         });
 
     };
@@ -32,7 +36,24 @@
         console.log(city)
     };
 
-    function getWeather( d ) {
+    function getCoordCity(d) {
+        lon = parseFloat(d.coord.lon);
+        lat = parseFloat(d.coord.lat);
+
+        console.log(lon + " " +lat);
+    };
+
+    function getForecastWeek() {
+
+        fetch('https://api.openweathermap.org/data/2.5/onecall?lat='+lat+'&lon='+lon+'&appid='+key)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);               
+        });
+
+    };
+
+    function getWeather(d) {
         celcius = Math.round(parseFloat(d.main.temp)-273.15);
 
         document.getElementById("description").innerHTML = d.weather[0].description;
