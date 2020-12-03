@@ -9,6 +9,7 @@
 
     // 1
     let city = "";
+    let celcius;
 
     document.getElementById("submit").addEventListener("click", getForecast);
 
@@ -21,9 +22,17 @@
         fetch('https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid=a3b4024741635c916c33de8b5cd6faf3')
             .then(response => response.json())
             .then(data => {
-                console.log(data)
+                console.log(data);
+                getWeather(data);
         });
 
+        function getWeather( d ) {
+            celcius = Math.round(parseFloat(d.main.temp)-273.15);
+
+            document.getElementById("description").innerHTML = d.weather[0].description;
+            document.getElementById("temp").innerHTML = celcius +"&deg;";
+            document.getElementById("location").innerHTML = d.name;
+        };
 
     };
 })();
