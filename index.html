@@ -3,22 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <title>Weather-app</title>
 </head>
 <body>
-    <form action="" id="weather-form">
-        <label for="city">City</label>
-        <input type="text" id="city" name="city">
-
-        <input type="submit" value="Get forecast" id="submit">
-    </form>
-
-    <div id="weather">
-        <div id="description"></div>
-        <h1 id="temp"></h1>
-        <div id="location"></div>
+    <div class="container">
+        <div class="form">
+            <form action="" id="weather-form">
+                <label for="city">City</label>
+                <input type="text" id="city" name="city">
+    
+                <input type="submit" value="Get forecast" id="submit">
+            </form>
+        </div>
+        
+    
+        <div class="card" style="width: 18rem;">
+            <div class="card-top">
+                <img class="card-img-top" src="" alt="weather" id="weatherimage">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title" id="title"></h5>
+              <p class="card-text">
+                <div id="location"></div>
+                <div id="description"></div>
+                <h1 id="temp"></h1>
+              </p>
+            </div>
+        </div>
     </div>
+    
+
+  
 
     <script src="script.js"></script>
 </body>

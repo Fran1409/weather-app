@@ -59,8 +59,10 @@
     function getWeather(d) {
         celcius = Math.round(parseFloat(d.main.temp)-273.15);
 
+        document.getElementById("title").innerHTML = "Weather for today"
         document.getElementById("description").innerHTML = d.weather[0].description;
         document.getElementById("temp").innerHTML = celcius +"&deg;";
         document.getElementById("location").innerHTML = d.name;
+        document.getElementById("weatherimage").src = "images/"+d.weather[0].icon+".png"
     };
 })();
