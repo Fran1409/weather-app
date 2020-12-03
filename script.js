@@ -17,5 +17,13 @@
 
         city = document.getElementById("city").value;
         console.log(city)
+
+        fetch('https://api.openweathermap.org/data/2.5/weather?q=London&appid=a3b4024741635c916c33de8b5cd6faf3')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+        });
+
+
     };
 })();
