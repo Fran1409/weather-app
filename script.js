@@ -16,8 +16,7 @@
     function getForecast(event) {
         event.preventDefault();
 
-        city = document.getElementById("city").value;
-        console.log(city)
+        getCity();
 
         fetch('https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid='+key)
             .then(response => response.json())
@@ -26,13 +25,18 @@
                 getWeather(data);
         });
 
-        function getWeather( d ) {
-            celcius = Math.round(parseFloat(d.main.temp)-273.15);
+    };
 
-            document.getElementById("description").innerHTML = d.weather[0].description;
-            document.getElementById("temp").innerHTML = celcius +"&deg;";
-            document.getElementById("location").innerHTML = d.name;
-        };
+    function getCity() {
+        city =  document.getElementById("city").value;
+        console.log(city)
+    };
 
+    function getWeather( d ) {
+        celcius = Math.round(parseFloat(d.main.temp)-273.15);
+
+        document.getElementById("description").innerHTML = d.weather[0].description;
+        document.getElementById("temp").innerHTML = celcius +"&deg;";
+        document.getElementById("location").innerHTML = d.name;
     };
 })();
