@@ -60,12 +60,17 @@
 
     function getWeatherNextDays(d) {
 
+        date = new Date();
+        date.setDate(date.getDate() + 1);
+        day = date.toISOString();
+        tomorrow = day.slice(0,10);
         let i = 0;
         
         while (tomorrow+" 12:00:00" != d.list[i].dt_txt) {
             i++; 
+            console.log(tomorrow+i);
         };
-
+        console.log(d.list[i].dt_txt);
         document.getElementById("date1").innerHTML = d.list[i].dt_txt.slice(0,10);
         document.getElementById("location1").innerHTML = d.city.name;
         document.getElementById("description1").innerHTML = d.list[i].weather[0].description;
@@ -77,6 +82,7 @@
         date.setDate(date.getDate() + 2);
         day = date.toISOString();
         tomorrow = day.slice(0,10);
+        i=0;
 
         while (tomorrow+" 12:00:00" != d.list[i].dt_txt) {
             i++;
@@ -129,7 +135,7 @@
         while (tomorrow+" 12:00:00" != d.list[i].dt_txt) {
             i++; 
         };
-
+        
         document.getElementById("date5").innerHTML = d.list[i].dt_txt.slice(0,10);
         document.getElementById("location5").innerHTML = d.city.name;
         document.getElementById("description5").innerHTML = d.list[i].weather[0].description;
